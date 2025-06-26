@@ -115,17 +115,14 @@
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       const data = Object.fromEntries(new FormData(form).entries());
-      fetch("https://script.google.com/macros/s/AKfycbx9sYi3J5iPha6dN6d0fPJohlO4GrdkCK0PTG_ByDimrGPLPvasBb9B2f1oFSuiWnAPAA/exec", {
+      fetch("https://script.google.com/macros/s/AKfycby1bV12korP8gvlZQlVa1xIT5LsjrlvWvPei-joIl2x91Zjtr3Udna99oPUmeEXiXwNcA/exec", {
         method: "POST",
+        mode: "no-cors",
         body: JSON.stringify(data),
         headers: { "Content-Type": "application/json" }
-      })
-      .then(res => res.text())
-      .then(res => {
-        alert(res);
-        form.reset();
-      })
-      .catch(err => alert("Error: " + err));
+      });
+      alert("Submitted! (Saved to Google Sheet)");
+      form.reset();
     });
   </script>
 </body>
